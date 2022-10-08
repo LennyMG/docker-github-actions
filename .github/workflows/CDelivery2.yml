@@ -43,6 +43,6 @@ jobs:
       - name: Remove All Images 
         working-directory: artemis
         run: |
-          git image prune  -af 
+          docker image prune  -af 
               
 
