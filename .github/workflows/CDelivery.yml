@@ -1,6 +1,6 @@
 env: 
   app_name: "wordpress"
-  app_vesion: ${GITHUB_SHA}
+  app_vesion: "${GITHUB_SHA}"
 
 name: Continuous Delivery
 
