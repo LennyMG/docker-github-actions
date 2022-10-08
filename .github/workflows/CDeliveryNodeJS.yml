@@ -1,7 +1,7 @@
 env:
     repo: "https://github.com/farrukh90/nodejs"
     app_version: "1.0.0"
-    app_name: "nodejs" 
+    app_name: nodejs
 
 name: ContinuousDeliveryNodeJS
 # Controls when the workflow will run
