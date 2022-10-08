@@ -26,9 +26,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-
-      # Runs a set of commands using the runners shell
+         # Runs a set of commands using the runners shell
       - name: Clone a repo
         run: |
           git clone ${{ env.repo }}
-          ls -l
+          ls -la
+
+
+      # Runs a set of commands using the runners shell
+      - name: Switch Branch
+        working-directory: artemis
+        run: |
+          git checkout 2.0.0
