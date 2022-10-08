@@ -1,5 +1,6 @@
 env:
     repo: "https://github.com/farrukh90/artemis"
+    app_version: "2.0.0"
 
 name: ContinuousDelivery
 # Controls when the workflow will run
@@ -37,7 +38,7 @@ jobs:
       - name: Switch Branch
         working-directory: artemis
         run: |
-          git checkout 2.0.0
+          git checkout ${{ env.app_version }}
 
       # Remove Stale Images Stage
       # - name: Remove All Images 
@@ -49,14 +50,14 @@ jobs:
       - name: Build Image 
         working-directory: artemis
         run: |
-          docker image build -t  artemis:2.0.0  .
+          docker image build -t  artemis:${{ env.app_version }}  .
           docker images
 
       # Tag Stae
       - name: Tag Image 
         working-directory: artemis
         run: |
-          docker image tag artemis:2.0.0  lennymg/artemis:2.0.0
+          docker image tag artemis:${{ env.app_version }}  lennymg/artemis:${{ env.app_version }}
        
       # Login to Private reg 
       - name: Login to DockerHub
@@ -69,7 +70,7 @@ jobs:
       - name: Push Image 
         working-directory: artemis
         run: |
-          docker push lennymg/artemis:2.0.0
+          docker push lennymg/artemis:${{ env.app_version }}
               
 
               
