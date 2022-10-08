@@ -57,7 +57,7 @@ jobs:
       - name: Tag Image 
         working-directory: artemis
         run: |
-          docker image tag artemis:${{ env.app_version }}  lennymg/artemis:${{ env.app_version }}
+          docker image tag artemis:${{ env.app_version }}  ${{ secrets.DOCKER_HUB_USERNAME }}/artemis:${{ env.app_version }}
        
       # Login to Private reg 
       - name: Login to DockerHub
@@ -70,7 +70,7 @@ jobs:
       - name: Push Image 
         working-directory: artemis
         run: |
-          docker push lennymg/artemis:${{ env.app_version }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/artemis:${{ env.app_version }}
               
 
               
