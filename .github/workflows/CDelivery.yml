@@ -1,4 +1,5 @@
-# This is a basic workflow to help you get started with Actions
+env: 
+  app_name: "wordpress"
 
 name: Continuous Delivery
 
@@ -40,4 +41,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name }}:latest
