@@ -1,6 +1,6 @@
 env: 
   app_name: "wordpress"
-  app_version: ${{ GITHUB_SHA }}. ##gives commint message
+  app_version: ${ GITHUB_SHA }. ##gives commint message
 
 name: Continuous Delivery
 
