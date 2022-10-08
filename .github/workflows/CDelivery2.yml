@@ -57,7 +57,13 @@ jobs:
         working-directory: artemis
         run: |
           docker image tag artemis:2.0.0  lennymg/artemis:2.0.0
-              
+       
+      # login to private reg 
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}             
     
               
 
