@@ -1,5 +1,6 @@
 env: 
   app_name: "wordpress"
+  app_version: ${{ GITHUB_SHA }}. ##gives commint message
 
 name: Continuous Delivery
 
@@ -41,4 +42,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name }}:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name }}:${{ env.app_version }}
