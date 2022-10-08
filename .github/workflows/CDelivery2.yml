@@ -39,10 +39,19 @@ jobs:
         run: |
           git checkout 2.0.0
 
+      # # Runs a set of commands using the runners shell
+      # - name: Remove All Images 
+      #   working-directory: artemis
+      #   run: |
+      #     docker image prune  -af 
+
       # Runs a set of commands using the runners shell
-      - name: Remove All Images 
+      - name: Build Image 
         working-directory: artemis
         run: |
-          docker image prune  -af 
+          docker image build -t  artemis:2.0.0
+          docker images
+              
+
               
 
