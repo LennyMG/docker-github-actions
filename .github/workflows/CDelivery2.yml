@@ -49,7 +49,7 @@ jobs:
       - name: Build Image 
         working-directory: artemis
         run: |
-          docker image build -t  artemis:2.0.0
+          docker image build -t  artemis:2.0.0  .
           docker images
               
 
