@@ -33,7 +33,7 @@ jobs:
           ls -la
 
 
-      # Runs a set of commands using the runners shell
+      # Switch Branch Stage
       - name: Switch Branch
         working-directory: artemis
         run: |
@@ -58,13 +58,18 @@ jobs:
         run: |
           docker image tag artemis:2.0.0  lennymg/artemis:2.0.0
        
-      # login to private reg 
+      # Login to Private reg 
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}             
-    
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} 
+
+      # Push Image Stage
+      - name: Push Image 
+        working-directory: artemis
+        run: |
+          docker image push dockerhub lennymg/artemis:2.0.0
               
 
               
