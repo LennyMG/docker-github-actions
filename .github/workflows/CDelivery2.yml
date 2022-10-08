@@ -39,18 +39,26 @@ jobs:
         run: |
           git checkout 2.0.0
 
-      # # Runs a set of commands using the runners shell
+      # Remove Stale Images Stage
       # - name: Remove All Images 
       #   working-directory: artemis
       #   run: |
       #     docker image prune  -af 
 
-      # Runs a set of commands using the runners shell
+      # Build Image Stage
       - name: Build Image 
         working-directory: artemis
         run: |
           docker image build -t  artemis:2.0.0  .
           docker images
+
+      # Tag Stae
+      - name: Tag Image 
+        working-directory: artemis
+        run: |
+          docker image tag artemis:2.0.0  lennymg/artemis:2.0.0
+              
+    
               
 
               
