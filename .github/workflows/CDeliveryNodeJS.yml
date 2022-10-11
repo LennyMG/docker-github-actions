@@ -8,9 +8,9 @@ name: ContinuousDeliveryNodeJS
 on:
   Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "non" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "non" ]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
