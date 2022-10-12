@@ -1,7 +1,7 @@
 version: "3.3"
 services: 
   artemis:
-    image: lennymg/artemis:2.0.0
+    image: lennymg/artemis:latest
     deploy:
       replicas: 1
       resources:

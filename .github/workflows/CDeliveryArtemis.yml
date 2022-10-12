@@ -2,6 +2,7 @@ env:
     repo: "https://github.com/farrukh90/artemis"
     app_version: "3.0.0"
     app_name: artemis 
+    tag_new_version: "latest"
 
 name: ContinuousDelivery
 #Controls when the workflow will run
@@ -58,7 +59,7 @@ jobs:
       - name: Tag Image 
         working-directory: ${{ env.app_name}}
         run: |
-          docker image tag ${{ env.app_name}}:${{ env.app_version }}  ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name}}:${{ env.app_version }}
+          docker image tag ${{ env.app_name}}:${{ env.tag_new_version }}  ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name}}:${{ env.tag_new_version }}
        
       # Login to Private reg 
       - name: Login to DockerHub
@@ -71,7 +72,7 @@ jobs:
       - name: Push Image 
         working-directory: ${{ env.app_name}}
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name}}:${{ env.app_version }}
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.app_name}}:${{ env.tag_new_version }}
               
 
               
