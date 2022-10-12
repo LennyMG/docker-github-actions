@@ -45,7 +45,7 @@ jobs:
           args: artemis
 
   deploy-to-qa:
-    needs: deploy-to-stage
+    needs: deploy-to-dev
     if: github.event.inputs.deploy_env == '' || github.event.inputs.deploy_env == 'qa'
     runs-on: ubuntu-latest
     steps:
