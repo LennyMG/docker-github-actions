@@ -88,7 +88,7 @@ jobs:
 
 
   deploy-to-prod:
-    if: github.event.inputs.deploy_env == "Prod"
+    if: github.event.inputs.deploy_env == "prod"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
